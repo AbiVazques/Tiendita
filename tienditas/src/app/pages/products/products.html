@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla Bonita</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px;
+      }
+
+      .table-container {
+        width: 100%;
+        max-width: 900px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        background: #4f46e5;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 18px 24px;
+        text-align: left;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #e5e7eb;
+        transition: background 0.3s ease;
+      }
+
+      tbody tr:hover {
+        background: #f9fafb;
+      }
+
+      .name {
+        font-weight: bold;
+        color: #111827;
+      }
+
+      .email {
+        color: #6b7280;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .active {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .pending {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .inactive {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Rol</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="name">Ana López</td>
+            <td class="email">ana@email.com</td>
+            <td>Diseñadora</td>
+            <td><span class="status active">Activo</span></td>
+          </tr>
+
+          <tr>
+            <td class="name">Carlos Ruiz</td>
+            <td class="email">carlos@email.com</td>
+            <td>Developer</td>
+            <td><span class="status pending">Pendiente</span></td>
+          </tr>
+
+          <tr>
+            <td class="name">María Torres</td>
+            <td class="email">maria@email.com</td>
+            <td>Marketing</td>
+            <td><span class="status active">Activo</span></td>
+          </tr>
+
+          <tr>
+            <td class="name">Luis Pérez</td>
+            <td class="email">luis@email.com</td>
+            <td>Soporte</td>
+            <td><span class="status inactive">Inactivo</span></td>
+          </tr>
+
+          <tr>
+            <td class="name">Sofía Gómez</td>
+            <td class="email">sofia@email.com</td>
+            <td>QA Tester</td>
+            <td><span class="status active">Activo</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
