@@ -1,0 +1,76 @@
+<div class="products-container">
+    <div class="header">
+        <h1>Productos</h1>
+        <button class="btn-add" (click)="openModal()">+ Agregar Producto</button>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Producto</th>
+                <th>Precio</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (product of products; track product.id) {
+            <tr>
+                <td>{{ product.id }}</td>
+                <td>{{ product.nombre }}</td>
+                <td>${{ product.precio }}</td>
+                <td>{{ product.stock }}</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal-overlay" *ngIf="showModal" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+        <div class="modal-header">
+            <h2>Agregar Nuevo Producto</h2>
+            <button class="btn-close" (click)="closeModal()">✕</button>
+        </div>
+
+        <form [formGroup]="productForm" class="modal-form">
+            <div class="form-group">
+                <label for="nombre">Nombre del Producto</label>
+                <input type="text" id="nombre" formControlName="nombre" placeholder="Ingrese el nombre del producto"
+                    class="form-input">
+                <span class="error-message"
+                    *ngIf="productForm.get('nombre')?.invalid && productForm.get('nombre')?.touched">
+                    El nombre debe tener al menos 3 caracteres
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio ($)</label>
+                <input type="number" id="precio" formControlName="precio" placeholder="Ingrese el precio"
+                    class="form-input" min="0" step="0.01">
+                <span class="error-message"
+                    *ngIf="productForm.get('precio')?.invalid && productForm.get('precio')?.touched">
+                    El precio debe ser mayor a 0
+                </span>
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock</label>
+                <input type="number" id="stock" formControlName="stock" placeholder="Ingrese la cantidad en stock"
+                    class="form-input" min="0">
+                <span class="error-message"
+                    *ngIf="productForm.get('stock')?.invalid && productForm.get('stock')?.touched">
+                    El stock debe ser mayor a 0
+                </span>
+            </div>
+        </form>
+
+        <div class="modal-footer">
+            <button class="btn-cancel" (click)="closeModal()">Cancelar</button>
+            <button class="btn-save" (click)="addProduct()" [disabled]="!productForm.valid">
+                Guardar Producto
+            </button>
+        </div>
+    </div>
+</div>
