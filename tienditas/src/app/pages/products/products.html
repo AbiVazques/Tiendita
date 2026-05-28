@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabla de Productos</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, sans-serif;
+      }
+
+      body {
+        background: #f3f4f6;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 40px;
+      }
+
+      .table-container {
+        width: 100%;
+        max-width: 1000px;
+        background: white;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      thead {
+        background: #4f46e5;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 18px 24px;
+        text-align: left;
+      }
+
+      tbody tr {
+        border-bottom: 1px solid #e5e7eb;
+        transition: background 0.3s ease;
+      }
+
+      tbody tr:hover {
+        background: #f9fafb;
+      }
+
+      .product {
+        font-weight: bold;
+        color: #111827;
+      }
+
+      .category {
+        color: #6b7280;
+      }
+
+      .status {
+        display: inline-block;
+        padding: 6px 14px;
+        border-radius: 999px;
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .available {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .low-stock {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .out-stock {
+        background: #fee2e2;
+        color: #991b1b;
+      }
+    </style>
+  </head>
+
+  <body>
+    <button routerLink="/form">Ir a formulario</button>
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Producto</th>
+            <th>Categoría</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="product">Laptop HP</td>
+            <td class="category">Tecnología</td>
+            <td>$850</td>
+            <td>15</td>
+            <td><span class="status available">Disponible</span></td>
+          </tr>
+
+          <tr>
+            <td class="product">Mouse Gamer</td>
+            <td class="category">Accesorios</td>
+            <td>$35</td>
+            <td>5</td>
+            <td><span class="status low-stock">Pocas unidades</span></td>
+          </tr>
+
+          <tr>
+            <td class="product">Teclado Mecánico</td>
+            <td class="category">Periféricos</td>
+            <td>$120</td>
+            <td>0</td>
+            <td><span class="status out-stock">Agotado</span></td>
+          </tr>
+
+          <tr>
+            <td class="product">Monitor Samsung</td>
+            <td class="category">Pantallas</td>
+            <td>$300</td>
+            <td>8</td>
+            <td><span class="status available">Disponible</span></td>
+          </tr>
+
+          <tr>
+            <td class="product">Auriculares Sony</td>
+            <td class="category">Audio</td>
+            <td>$95</td>
+            <td>3</td>
+            <td><span class="status low-stock">Pocas unidades</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>
